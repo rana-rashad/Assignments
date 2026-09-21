@@ -1,0 +1,13 @@
+$kind: http-request
+description: ""
+url: http://localhost:3000/user/2
+method: DELETE
+body:
+  type: json
+  content: ""
+settings:
+  strictSSL: false
+  followRedirects: true
+  disableCookies: false
+  maxResponseSize: 52428800
+order: 4489269951073420
