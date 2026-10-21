@@ -1,0 +1,19 @@
+{
+  "name": "assignment5-sequelize",
+  "version": "1.0.0",
+  "description": "Route Assignment 5 - Sequelize (Users / Posts / Comments)",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.js",
+    "start:dev": "node --watch src/main.js",
+    "start:prod": "cross-env NODE_ENV=production node src/main.js"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mysql2": "^3.11.5",
+    "sequelize": "^6.37.5"
+  }
+}
