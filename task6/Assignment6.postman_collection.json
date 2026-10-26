@@ -1,0 +1,435 @@
+{
+  "info": {
+    "name": "Assignment 7 - Books API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Books Collection (Validation)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/collection/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "collection",
+            "books"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Authors Collection (Implicit)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/collection/authors",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "collection",
+            "authors"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Author1\",\n  \"nationality\": \"British\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Create Logs Capped Collection",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/collection/logs/capped",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "collection",
+            "logs",
+            "capped"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Books Title Index",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/collection/books/index",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "collection",
+            "books",
+            "index"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Book",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/books",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Book1\",\n  \"author\": \"Ali\",\n  \"year\": 1937,\n  \"genres\": [\n    \"Fantasy\",\n    \"Adventure\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Add Books Batch",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/books/batch",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "batch"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"title\": \"Future\",\n    \"author\": \"George Orwell\",\n    \"year\": 2020,\n    \"genres\": [\n      \"Science Fiction\"\n    ]\n  },\n  {\n    \"title\": \"To Kill a Mockingbird\",\n    \"author\": \"Harper Lee\",\n    \"year\": 1960,\n    \"genres\": [\n      \"Classic\",\n      \"Fiction\"\n    ]\n  },\n  {\n    \"title\": \"Brave New World\",\n    \"author\": \"Aldous Huxley\",\n    \"year\": 2006,\n    \"genres\": [\n      \"Dystopian\",\n      \"Science Fiction\"\n    ]\n  }\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Add Log",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/logs",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "logs"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"book_id\": \"PUT_A_REAL_BOOK_ID_HERE\",\n  \"action\": \"borrowed\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Update Book Year By Title",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/books/Future",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "Future"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"year\": 2022\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Find Book By Title",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/title?title=Brave New World",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "title"
+          ],
+          "query": [
+            {
+              "key": "title",
+              "value": "Brave New World"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Find Books By Year Range",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/year?from=1990&to=2010",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "year"
+          ],
+          "query": [
+            {
+              "key": "from",
+              "value": "1990"
+            },
+            {
+              "key": "to",
+              "value": "2010"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Find Books By Genre",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/genre?genre=Science Fiction",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "genre"
+          ],
+          "query": [
+            {
+              "key": "genre",
+              "value": "Science Fiction"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Books Skip And Limit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/skip-limit",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "skip-limit"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Books Year As Integer",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/year-integer",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "year-integer"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Books Exclude Genres",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/exclude-genres",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "exclude-genres"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Books Before Year",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/before-year?year=2000",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "before-year"
+          ],
+          "query": [
+            {
+              "key": "year",
+              "value": "2000"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Aggregate - After 2000 Sorted Desc",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/aggregate1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "aggregate1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Aggregate - Project Title Author Year",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/aggregate2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "aggregate2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Aggregate - Unwind Genres",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/aggregate3",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "aggregate3"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Aggregate - Join Logs With Books",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/books/aggregate4",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "books",
+            "aggregate4"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ]
+}
